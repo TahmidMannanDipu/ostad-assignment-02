@@ -8,9 +8,8 @@ class HomePage extends StatelessWidget {
     // build reusable widget
     Widget buildIconAndText(IconData icon, String text) {
       return Padding(
-        padding: const EdgeInsets.only(top: 16.0, bottom: 32, left: 8),
+        padding: const EdgeInsets.only(top: 16.0, left: 8),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           children: [
             CircleAvatar(
               backgroundColor: Colors.deepPurpleAccent[50],
@@ -27,9 +26,6 @@ class HomePage extends StatelessWidget {
               text,
               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 8,
-            )
           ],
         ),
       );
@@ -48,12 +44,16 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            buildIconAndText(
-                Icons.icecream_outlined, "Ice cream is very delicious right?"),
-            buildIconAndText(
-                Icons.code, "Programming is not boring if you love it"),
-            buildIconAndText(Icons.egg_outlined,
-                "If you submit code directly copy from chatgpt then mark will 0")
+            Expanded(
+              child: buildIconAndText(Icons.icecream_outlined,
+                  "Ice cream is very delicious right?"),
+            ),
+            Expanded(
+              child: buildIconAndText(
+                  Icons.code, "Programming is not boring if you love it"),
+            ),
+            Expanded(child: buildIconAndText(Icons.egg_outlined,
+                "If you submit code directly copy from chatgpt then mark will 0"))
           ],
         ),
       ),
